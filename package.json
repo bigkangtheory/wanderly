@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server.js & webpack --watch",
     "build:dev": "NODE_ENV=development webpack & node server.js",
-    "build:prod": "NODE_ENV=production node ./node_modules/.bin/webpack & node server.js",
+    "build:prod": "NODE_ENV=production node server.js",
     "test": "mocha --watch"
   },
   "repository": {
