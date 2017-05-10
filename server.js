@@ -45,9 +45,10 @@ app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, '/front/views/index.html'));
 });
 
+const port = process.env.PORT || 3000
 
 db.sequelize.sync().then(function () {
-  app.listen(3000, () => console.log('Server running on Port 3000'));
+  app.listen(port, () => console.log('Server running on Port ' + port));
 });
 
 module.exports = app;
