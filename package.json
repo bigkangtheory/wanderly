@@ -4,6 +4,7 @@
   "description": "A social media for travelers to share their pictures and budget",
   "main": "index.js",
   "scripts": {
+    "postinstall": "webpack",
     "start": "nodemon server.js & webpack --watch",
     "build:dev": "NODE_ENV=development webpack & node server.js",
     "build:prod": "NODE_ENV=production node server.js",
