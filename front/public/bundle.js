@@ -46524,6 +46524,7 @@
 	
 	var userLogin = exports.userLogin = function userLogin(info) {
 	  return function (dispatch) {
+	    console.log('user login');
 	    _axios2.default.post('/login', info).then(function (user) {
 	      console.log('INFO', info);
 	      console.log('user', user);

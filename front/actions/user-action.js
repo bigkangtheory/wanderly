@@ -21,6 +21,7 @@ const user_logout = (user) =>({
 
 export const userLogin = (info) => (
   (dispatch) => {
+    console.log('user login')
     axios.post('/login', info)
     .then((user) => {
 			console.log('INFO', info)

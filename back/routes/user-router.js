@@ -62,20 +62,30 @@ module.exports = function (app, passport){
 			}]
 		})
       .then(function(user) {
+
         // if no user is found, return the message
         user = user.dataValues
+        console.log("user password: ", user.password)
+        console.log("request password: ", req.body.password)
         if (!user) {
+        	console.log("no user")
           res.status(401);
         }
         else if (!bcrypt.compareSync(req.body.password, user.password)) {
+        	console.log("encryption error")
           res.status(401).end();
         }
         else {
         	req.logIn(user, function(err) {
-			      if (err) { return next(err); }
+			      if (err) { 
+			      	console.log("log in error")
+			      	return next(err); 
+			      }
+			      console.log("logged in")
 			      user = Object.assign({}, user);
 			      delete user.password
 			      res.end(JSON.stringify(user));
+
 			      return true;
 	    		})
 					// .then(() => {
@@ -84,6 +94,7 @@ module.exports = function (app, passport){
       	};
       })
       .catch(function(err){
+      	console.log("some error: ", err)
         res.status(500);
       });
     })(req, res, next);

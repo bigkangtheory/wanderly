@@ -1,6 +1,8 @@
 'use strict'
 
 const Profile = require('../models').Profile;
+const User = require('../models').User;
+const bcrypt = require('bcrypt-nodejs');
 
 let profileArr = [ 
   {
@@ -32,8 +34,39 @@ let profileArr = [
   },
 ];
 
-const profileSeed = () =>{
-  Profile.bulkCreate(profileArr)
-};
+let userArr = [ 
+  {
+    email: "jane@gmail.com",
+    password: "jane"
+  },
+  {
+    email: "chunLisa@gmail.com",
+    password: "lisa"
+  },
+  {
+    email: "smith@gmail.com",
+    password: "smith"
+  },
+];
+
+const profileSeed = () => 
+  new Promise((resolve, reject) => {
+    const length = profileArr.length
+
+    for (let i = 0; i < length; i++){
+      Profile.create(profileArr[i])
+      .then(profile => {
+        User.create({
+          email: userArr[i].email,
+          password: bcrypt.hashSync(userArr[i].password)
+        })
+        .then(user => {
+          user.setProfile(profile)
+          if (i === length - 1) resolve()
+        })
+      })   
+    }
+  })
+
 
 module.exports = profileSeed;
