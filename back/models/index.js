@@ -11,7 +11,13 @@ var db        = {};
 if (process.env.NODE_ENV === 'development' || !process.env.DATABASE_URL) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 } else {
-  var sequelize = new Sequelize(process.env.DATABASE_URL);
+  var sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    dialectOptions: {
+        ssl: true
+    }
+  })
 }
 
 fs
