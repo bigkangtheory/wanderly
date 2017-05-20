@@ -124,9 +124,8 @@ We absolutely believe this is a cool way to share experiences while helping othe
 * Community of friends
 * Itinerary ranking system
 
-### Check it out!
-Our demo is now live!
-Feel free to log in with one of our dummy accounts.
+### Demo is now live!
+Feel free to log in with one of our dummy accounts and check it out!
 https://goo.gl/sntAHr
 
 ```
