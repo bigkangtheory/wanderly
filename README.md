@@ -123,3 +123,20 @@ We absolutely believe this is a cool way to share experiences while helping othe
 * Search functionality filterable by destinations(country, city, states)/POI etc
 * Community of friends
 * Itinerary ranking system
+
+### Check it out!
+Our demo is now live!
+Feel free to log in with one of our dummy accounts.
+https://goo.gl/sntAHr
+
+```
+email: chunLisa@gmail.com
+password: lisa
+
+email: jane@gmail.com
+password: jane
+
+email: smith@gmail.com
+password: smith
+```
+
